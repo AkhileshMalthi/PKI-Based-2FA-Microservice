@@ -1,0 +1,13 @@
+[project]
+name = "pki-based-2fa-microservice"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography==42.0.0",
+    "fastapi==0.109.0",
+    "pyotp==2.9.0",
+    "requests==2.31.0",
+    "uvicorn==0.27.0",
+]
