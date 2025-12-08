@@ -14,7 +14,6 @@ def generate_rsa_keypair(key_size: int = 4096):
     - Return key objects for further use
     """
     from cryptography.hazmat.primitives.asymmetric import rsa
-    from cryptography.hazmat.primitives import serialization
 
     # Generate the Private Key
     private_key = rsa.generate_private_key(
