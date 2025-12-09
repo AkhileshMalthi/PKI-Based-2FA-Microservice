@@ -1,2 +1,2 @@
-cron/2fa-cron text eol=lf
+cron/2fa_cron text eol=lf
 *.sh text eol=lf
