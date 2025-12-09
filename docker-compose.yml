@@ -1,0 +1,41 @@
+services:
+  app:
+    # 1. Build Configuration
+    # We tell Docker to look in the current folder (.) for a Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    container_name: 2fa_microservice
+
+    # 2. Port Mapping
+    # Maps localhost:8080 (your laptop) -> Container:8080
+    ports:
+      - "8080:8080"
+
+    # 3. Volume Mounts
+    # "named_volume:/path/in/container"
+    volumes:
+      # Persistent storage for the decrypted seed
+      - seed-data:/data
+      # Persistent storage for the cron logs
+      - cron-output:/cron
+      # Mount keys directly so you don't have to rebuild if keys change
+      - ./student_private.pem:/app/student_private.pem:ro
+      - ./student_public.pem:/app/student_public.pem:ro
+      - ./instructor_public.pem:/app/instructor_public.pem:ro
+
+    # 4. Environment Variables
+    env_file:
+      - .env
+    environment:
+      - TZ=UTC
+    
+    # 5. Restart Policy
+    # If the app crashes, try to start it again automatically
+    restart: unless-stopped
+
+# Define the persistent storage volumes
+volumes:
+  seed-data:
+  cron-output:
