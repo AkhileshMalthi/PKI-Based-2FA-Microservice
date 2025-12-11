@@ -1,7 +1,6 @@
 services:
   app:
     # 1. Build Configuration
-    # We tell Docker to look in the current folder (.) for a Dockerfile
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,12 +8,10 @@ services:
     container_name: 2fa_microservice
 
     # 2. Port Mapping
-    # Maps localhost:8080 (your laptop) -> Container:8080
     ports:
       - "8080:8080"
 
     # 3. Volume Mounts
-    # "named_volume:/path/in/container"
     volumes:
       # Persistent storage for the decrypted seed
       - seed-data:/data
@@ -26,13 +23,13 @@ services:
       - ./instructor_public.pem:/app/instructor_public.pem:ro
 
     # 4. Environment Variables
-    env_file:
-      - .env
     environment:
       - TZ=UTC
+      - DATA_DIR=/data
+      - SEED_FILE=/data/seed.txt
+      - PRIVATE_KEY_FILE=student_private.pem
     
     # 5. Restart Policy
-    # If the app crashes, try to start it again automatically
     restart: unless-stopped
 
 # Define the persistent storage volumes
