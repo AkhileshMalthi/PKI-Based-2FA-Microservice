@@ -37,7 +37,7 @@ echo -e "\n"
 # 5. Check cron output (wait 70+ seconds)
 echo "5. Checking cron job output (waiting 70 seconds)..."
 sleep 70
-docker exec 2fa_microservice cat /cron/last_code.txt
+docker exec 2fa_microservice tail /cron/last_code.txt
 echo -e "\n"
 
 echo "=== Tests completed ==="
