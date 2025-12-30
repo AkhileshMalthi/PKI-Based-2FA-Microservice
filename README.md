@@ -305,27 +305,6 @@ This project demonstrates:
 - Secure key management
 - Production deployment patterns
 
-## 🤝 Contributing
-
-This is an educational project. For improvements or issues, please open a GitHub issue.
-
-## 📄 License
-
-This project is for educational purposes as part of a security course assignment.
-
-## 👤 Author
-
-**Akhilesh Malthi**
-- GitHub: [@AkhileshMalthi](https://github.com/AkhileshMalthi)
-- Repository: [PKI-Based-2FA-Microservice](https://github.com/AkhileshMalthi/PKI-Based-2FA-Microservice)
-
-## 🙏 Acknowledgments
-
-- Course instructors for the project specifications
-- PyCA cryptography library maintainers
-- FastAPI framework developers
-- TOTP RFC 6238 specification
-
 ---
 
 **⚠️ Security Notice**: The RSA keys in this repository are for educational purposes only. Never reuse these keys in production environments.
